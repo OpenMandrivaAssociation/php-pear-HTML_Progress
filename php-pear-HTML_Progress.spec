@@ -3,12 +3,12 @@
 %define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
 
-%define _requires_exceptions	pear(include_path.php)
+%define _requires_exceptions	pear(include_path.php)\\|pear(PHPUnit.php)
 
 Summary:	%{_pearname} - including a loading bar in your XHTML documents quickly and easily
 Name:		php-pear-%{_pearname}
 Version:	1.2.5
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	PHP License
 Group:		Development/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tar.bz2
@@ -96,5 +96,3 @@ rm -rf %{buildroot}
 %{_datadir}/pear/%{_class}/*.php
 %{_datadir}/pear/%{_class}/%{_subclass}
 %{_datadir}/pear/packages/%{_pearname}.xml
-
-
