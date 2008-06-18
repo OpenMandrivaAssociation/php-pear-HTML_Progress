@@ -8,7 +8,7 @@
 Summary:	Including a loading bar in your XHTML documents quickly and easily
 Name:		php-pear-%{_pearname}
 Version:	1.2.5
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	PHP License
 Group:		Development/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tar.bz2
