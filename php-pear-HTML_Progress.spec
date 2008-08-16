@@ -7,18 +7,18 @@
 
 Summary:	Including a loading bar in your XHTML documents quickly and easily
 Name:		php-pear-%{_pearname}
-Version:	1.2.5
-Release:	%mkrel 5
+Version:	1.2.6
+Release:	%mkrel 1
 License:	PHP License
 Group:		Development/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tar.bz2
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 URL:		http://pear.php.net/package/HTML_Progress/
 Requires(post): php-pear
 Requires(preun): php-pear
 Requires:	php-pear
 BuildArch:	noarch
 BuildRequires:	dos2unix
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This package provides a way to add a loading bar fully costomizable in
