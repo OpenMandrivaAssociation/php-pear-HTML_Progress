@@ -6,7 +6,7 @@
 
 Name:		php-pear-%{upstream_name}
 Version:	1.2.6
-Release:	%mkrel 6
+Release:	%mkrel 7
 Summary:	Including a loading bar in your XHTML documents quickly and easily
 License:	PHP License
 Group:		Development/PHP
