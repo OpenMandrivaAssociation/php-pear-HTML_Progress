@@ -2,11 +2,11 @@
 %define		_subclass	Progress
 %define		upstream_name	%{_class}_%{_subclass}
 
-%define _requires_exceptions	pear(Smarty.class.php)
+%define _requires_exceptions	pear(Smarty.class.php)\\|pear(include_path.php)
 
 Name:		php-pear-%{upstream_name}
 Version:	1.2.6
-Release:	%mkrel 8
+Release:	%mkrel 9
 Summary:	Including a loading bar in your XHTML documents quickly and easily
 License:	PHP License
 Group:		Development/PHP
