@@ -42,8 +42,6 @@ Features:
 - scale can be changed (default is 100)
 - legend of percent text info can be changed (default is "%")
 
-This class has in PEAR status: %{_status}.
-
 %prep
 %setup -q -c
 mv package.xml %{upstream_name}-%{version}/%{upstream_name}.xml
