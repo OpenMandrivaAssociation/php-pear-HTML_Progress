@@ -1,6 +1,6 @@
-%define		_class		HTML
-%define		_subclass	Progress
-%define		upstream_name	%{_class}_%{_subclass}
+%define	_class		HTML
+%define	_subclass	Progress
+%define	modname	%{_class}_%{_subclass}
 
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'pear\\(Smarty.class.php\\)'
@@ -8,19 +8,18 @@
 %define _requires_exceptions	pear(Smarty.class.php)
 %endif
 
-Name:		php-pear-%{upstream_name}
+Summary:	Including a loading bar in your XHTML documents quickly and easily
+Name:		php-pear-%{modname}
 Version:	1.2.6
 Release:	10
-Summary:	Including a loading bar in your XHTML documents quickly and easily
 License:	PHP License
 Group:		Development/PHP
-URL:		http://pear.php.net/package/HTML_Progress/
-Source0:	http://download.pear.php.net/package/%{upstream_name}-%{version}.tgz
-Requires(post): php-pear
-Requires(preun): php-pear
-Requires:	php-pear
-BuildRequires:	php-pear
+Url:		http://pear.php.net/package/HTML_Progress/
+Source0:	http://download.pear.php.net/package/%{modname}-%{version}.tgz
 BuildArch:	noarch
+BuildRequires:	php-pear
+Requires(post,preun):	php-pear
+Requires:	php-pear
 
 %description
 This package provides a way to add a loading bar fully costomizable in
@@ -42,125 +41,26 @@ Features:
 - legend of percent text info can be changed (default is "%")
 
 %prep
-%setup -q -c
-mv package.xml %{upstream_name}-%{version}/%{upstream_name}.xml
+%setup -qc
+mv package.xml %{modname}-%{version}/%{modname}.xml
 
 %install
-
-cd %{upstream_name}-%{version}
-pear install --nodeps --packagingroot %{buildroot} %{upstream_name}.xml
+cd %{modname}-%{version}
+pear install --nodeps --packagingroot %{buildroot} %{modname}.xml
 rm -rf %{buildroot}%{_datadir}/pear/.??*
 
 rm -rf %{buildroot}%{_datadir}/pear/docs
 rm -rf %{buildroot}%{_datadir}/pear/tests
 
 install -d %{buildroot}%{_datadir}/pear/packages
-install -m 644 %{upstream_name}.xml %{buildroot}%{_datadir}/pear/packages
-
-%clean
-
-
+install -m 644 %{modname}.xml %{buildroot}%{_datadir}/pear/packages
 
 %files
-%defattr(-,root,root)
-%doc %{upstream_name}-%{version}/ChangeLog
-%doc %{upstream_name}-%{version}/INSTALL
-%doc %{upstream_name}-%{version}/LICENSE
-%doc %{upstream_name}-%{version}/examples
-%doc %{upstream_name}-%{version}/Release-*
+%doc %{modname}-%{version}/ChangeLog
+%doc %{modname}-%{version}/INSTALL
+%doc %{modname}-%{version}/LICENSE
+%doc %{modname}-%{version}/examples
+%doc %{modname}-%{version}/Release-*
 %{_datadir}/pear/%{_class}
-%{_datadir}/pear/packages/%{upstream_name}.xml
-
-
-%changelog
-* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.2.6-7mdv2011.0
-+ Revision: 667503
-- mass rebuild
-
-* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1.2.6-6mdv2011.0
-+ Revision: 607104
-- rebuild
-
-* Sun Dec 13 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.6-5mdv2010.1
-+ Revision: 478091
-- spec cleanup
-- use pear installer
-- don't ship tests, even in documentation
-- own all directories
-- use rpm filetriggers starting from mandriva 2010.1
-
-* Sat Jul 25 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.6-4mdv2010.0
-+ Revision: 399772
-- spec cleanup
-- don't duplicate spec-helper job
-- fix bogus dependency
-
-* Fri Jul 24 2009 Raphaël Gertz <rapsys@mandriva.org> 1.2.6-3mdv2010.0
-+ Revision: 399533
-- Rebuild
-
-* Wed Dec 31 2008 Oden Eriksson <oeriksson@mandriva.com> 1.2.6-2mdv2009.1
-+ Revision: 321833
-- rebuild
-
-* Sat Aug 16 2008 Oden Eriksson <oeriksson@mandriva.com> 1.2.6-1mdv2009.0
-+ Revision: 272586
-- 1.2.6
-
-* Wed Jun 18 2008 Thierry Vignaud <tv@mandriva.org> 1.2.5-5mdv2009.0
-+ Revision: 224739
-- rebuild
-
-* Tue Feb 12 2008 Oden Eriksson <oeriksson@mandriva.com> 1.2.5-4mdv2008.1
-+ Revision: 166132
-- rpmlint fixes
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - kill re-definition of %%buildroot on Pixel's request
-
-* Fri Apr 20 2007 Oden Eriksson <oeriksson@mandriva.com> 1.2.5-3mdv2008.0
-+ Revision: 15455
-- rule out the PHPUnit.php dep
-
-
-* Sat Nov 11 2006 Oden Eriksson <oeriksson@mandriva.com> 1.2.5-2mdv2007.0
-+ Revision: 81099
-- Import php-pear-HTML_Progress
-
-* Fri Feb 10 2006 Oden Eriksson <oeriksson@mandriva.com> 1.2.5-2mdk
-- new group (Development/PHP)
-
-* Mon Nov 07 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.5-1mdk
-- 1.2.5
-
-* Thu Sep 22 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.3-2mdk
-- rule out some auto deps
-
-* Thu Sep 22 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.3-1mdk
-- 1.2.3
-
-* Fri Aug 26 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.1-4mdk
-- rebuilt to fix auto deps
-
-* Wed Aug 10 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.1-3mdk
-- rebuilt to use new pear auto deps/reqs from pld
-
-* Sun Jul 31 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.1-2mdk
-- fix deps
-
-* Thu Jul 21 2005 Oden Eriksson <oeriksson@mandriva.com> 1.2.1-1mdk
-- 1.2.1
-
-* Thu Jul 21 2005 Oden Eriksson <oeriksson@mandriva.com> 1.0-3mdk
-- reworked the %%post and %%preun stuff, like in conectiva
-- fix deps
-
-* Wed Jul 20 2005 Oden Eriksson <oeriksson@mandriva.com> 1.0-2mdk
-- fix deps
-
-* Tue Jul 19 2005 Oden Eriksson <oeriksson@mandriva.com> 1.0-1mdk
-- initial Mandriva package (PLD import)
+%{_datadir}/pear/packages/%{modname}.xml
 
