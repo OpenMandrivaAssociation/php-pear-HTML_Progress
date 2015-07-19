@@ -11,7 +11,7 @@
 Summary:	Including a loading bar in your XHTML documents quickly and easily
 Name:		php-pear-%{modname}
 Version:	1.2.6
-Release:	17
+Release:	18
 License:	PHP License
 Group:		Development/PHP
 Url:		http://pear.php.net/package/HTML_Progress/
