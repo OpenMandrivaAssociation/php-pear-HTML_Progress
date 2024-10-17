@@ -14,7 +14,7 @@ Version:	1.2.6
 Release:	19
 License:	PHP License
 Group:		Development/PHP
-Url:		http://pear.php.net/package/HTML_Progress/
+Url:		https://pear.php.net/package/HTML_Progress/
 Source0:	http://download.pear.php.net/package/%{modname}-%{version}.tgz
 BuildArch:	noarch
 BuildRequires:	php-pear
